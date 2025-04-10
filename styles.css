@@ -1,0 +1,146 @@
+/* Umumiy stil */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* line-height: 1.6; */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* padding: 20px; */
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+
+/* Sarlavha */
+header h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Kategoriyalar */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.categories button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    flex: 1 1 auto;
+}
+
+.categories button.active {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Mahsulotlar */
+.products {
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-category {
+    display: none; /* Boshlang'ichda barcha kategoriyalar yashiriladi */
+    width: 100%;
+}
+
+.product-category.active {
+    display: flex; /* Faqat aktiv kategoriya ko'rsatiladi */
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+header h1{
+    /* line-height: 60px; */
+    font-size: 25px;
+    color: #4e1818;
+}
+header img{
+    position: absolute;
+    right: 20px;
+    z-index: 9999;
+    top: 10px;
+    width: 36px;
+    height: 30px;
+}
+header{
+    background: #b59393;
+    position: sticky;
+    border-radius: 8px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    /* gap: 210px; */
+    
+    margin-top: 0px;
+    padding-left: 10px;
+}
+/* Kartochka */
+.card {
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 200px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Kartochka hover effekti */
+}
+
+.card img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.card p {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Mobil moslashuvchanlik */
+@media (max-width: 600px) {
+    .categories button {
+        width: 100px; /* Mobilda tugmalarni to'liq kenglikda qilish */
+        /* position: fixed; */
+    }
+
+    .card {
+        max-width: 100%; /* Mobilda kartochkalarni to'liq kenglikda qilish */
+    }
+}
