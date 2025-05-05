@@ -17,7 +17,6 @@ body {
     box-sizing: border-box;
 }
 
-
 /* Sarlavha */
 header h1 {
     text-align: center;
@@ -70,12 +69,14 @@ header h1 {
     gap: 20px;
     justify-content: center;
 }
-header h1{
+
+header h1 {
     /* line-height: 60px; */
     font-size: 25px;
     color: #4e1818;
 }
-header img{
+
+header img {
     position: absolute;
     right: 20px;
     z-index: 9999;
@@ -83,7 +84,8 @@ header img{
     width: 36px;
     height: 30px;
 }
-header{
+
+header {
     background: #b59393;
     position: sticky;
     border-radius: 8px;
@@ -91,10 +93,10 @@ header{
     display: flex;
     align-items: center;
     /* gap: 210px; */
-    
     margin-top: 0px;
     padding-left: 10px;
 }
+
 /* Kartochka */
 .card {
     display: flex;
@@ -102,12 +104,17 @@ header{
     border: 1px solid #ddd;
     border-radius: 8px;
     width: 400px;
-    height: 250px;
     max-width: 200px;
     text-align: center;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: max-height 0.3s ease, transform 0.3s ease; /* Balandlik va transformatsiya uchun animatsiya */
+    max-height: 250px; /* Dastlabki balandlik */
+    cursor: pointer; /* Bosilishi mumkinligini ko‘rsatish */
+}
+
+.card.active {
+    max-height: 350px; /* Tavsif ko‘rinsa balandlik oshadi */
 }
 
 .card:hover {
@@ -124,6 +131,9 @@ header{
 .card-content {
     padding: 15px;
     margin-top: 15px;
+    display: flex;
+    flex-direction: column; /* Elementlarni vertikal joylashtirish */
+    justify-content: flex-start; /* Yuqoridan boshlash */
 }
 
 .card h3 {
@@ -134,6 +144,21 @@ header{
 .card p {
     color: #28a745;
     font-weight: bold;
+}
+
+.description {
+    display: none; /* Dastlab yashirilgan */
+    margin-top: 10px;
+    font-style: italic;
+    width: 100px;
+    height: 130px;
+    overflow: auto;
+    color: #555;
+    transition: all 0.3s ease; /* Silliq o‘zgarish uchun */
+}
+
+.card.active .description {
+    display: block; /* Active holatda ko‘rinadi */
 }
 
 /* Mobil moslashuvchanlik */
