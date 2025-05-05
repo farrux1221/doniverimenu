@@ -150,8 +150,8 @@ header {
     display: none; /* Dastlab yashirilgan */
     margin-top: 10px;
     font-style: italic;
-    width: 100px;
-    height: 130px;
+    width: 130px;
+    height: 160px;
     overflow: auto;
     color: #555;
     transition: all 0.3s ease; /* Silliq o‘zgarish uchun */
