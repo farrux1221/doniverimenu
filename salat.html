@@ -7,10 +7,23 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
+
+  <style>
+    .description {
+      display: none;
+     
+      margin-top: 10px;
+      font-style: italic;
+    }
+    .card {
+      cursor: pointer; /* Indicates the card is clickable */
+    }
+    /* Add your existing card styles here if any */
+  </style>
   <body>
     <nav class="navbar">
       <div class="logo">
-        <img src="./img/photo_2025-02-21_14-16-30.jpg" alt="Fayz Cafe" />
+        <img src="./img/chustlogo.jpg" alt="Fayz Cafe" />
       </div>
       <div class="marquee-container">
         <div class="marquee-text">Фаввора чойхонасига Хуш келибсиз!</div>
@@ -29,64 +42,176 @@
       <section class="products">
         <section id="salatlar" class="product-category active">
           <div class="card">
-          <img src="./img/qatiq.jpg" alt="">
+            <img src="./img/qatiq.jpg" alt="Қатиқ">
             <div class="card-content">
               <h3>Қатиқ</h3>
               <p>5 000 сум</p>
+              <p class="description">Traditional yogurt drink, refreshing and tangy.</p>
             </div>
           </div>
           <div class="card">
-            <img src="./img/bahor.jpg" alt="">
-              <div class="card-content">
-                <h3>Бахор Салат</h3>
-                <p>12 000 сум</p>
-              </div>
-            </div>
-          <div class="card">
-            <img src="./img/chiroqchi.jpg" alt="">
+            <img src="./img/bahor.jpg" alt="Каткий салат">
             <div class="card-content">
-              <h3>Чирoқчи </h3>
-              <p>40 000 сум</p>
+              <h3>Каткий салат</h3>
+              <p>12 000 сум</p>
+              <p class="description">Fresh greens with a light dressing.</p>
             </div>
           </div>
           <div class="card">
-            <img
-            src="https://foodee.menu/_next/image?url=https%3A%2F%2Fapi.zon.uz%2Ffoodee%2F1000079316%2Fproducts%2Fimage%2F66f00833cd9b640c7bc704f3.webp&w=1920&q=75"
-            alt="Sezar salati"
-          />
+            <img src="./img/chiroqchi.jpg" alt="Сузма">
             <div class="card-content">
-              <h3>Аччиқ-Чучук</h3>
-              <p>40 000 сум</p>
-            </div>
-            
-          </div>
-          <div class="card">
-            <img src="./img/suz.jpg" alt="">
-            <div class="card-content">
-
               <h3>Сузма</h3>
+              <p>40 000 сум</p>
+              <p class="description">Thick strained yogurt, rich and creamy.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://foodee.menu/_next/image?url=https%3A%2F%2Fapi.zon.uz%2Ffoodee%2F1000079316%2Fproducts%2Fimage%2F66f00833cd9b640c7bc704f3.webp&w=1920&q=75" alt="Себзий салат">
+            <div class="card-content">
+              <h3>Себзий салат</h3>
+              <p>40 000 сум</p>
+              <p class="description">Mixed vegetables with herbs and spices.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/suz.jpg" alt="Бахор салат">
+            <div class="card-content">
+              <h3>Бахор салат</h3>
               <p>10 000 сум</p>
+              <p class="description">Spring salad with fresh seasonal veggies.</p>
             </div>
-            
           </div>
           <div class="card">
-            <img src="./img/salyoniy.jpg" alt="">
+            <img src="./img/salyoniy.jpg" alt="Чирозий">
             <div class="card-content">
-              <h3>Тузлама</h3>
+              <h3>Чирозий</h3>
               <p>25 000 сум</p>
+              <p class="description">Spicy salad with unique local flavors.</p>
             </div>
-            
           </div>
           <div class="card">
-            <img src="./img/sveji.jpg" alt="">
+            <img src="./img/sveji.jpg" alt="Мардонавое ассорти">
             <div class="card-content">
-              <h3>Свежий</h3>
+              <h3>Мардонавое ассорти</h3>
               <p>30 000 сум</p>
+              <p class="description">Hearty assorted meats and vegetables.</p>
             </div>
-            
+          </div>
+          <div class="card">
+            <img src="./img/sveji.jpg" alt="Салене ассорти">
+            <div class="card-content">
+              <h3>Салене ассорти</h3>
+              <p>30 000 сум</p>
+              <p class="description">Variety of fresh salad ingredients.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/sveji.jpg" alt="Хoлoдец">
+            <div class="card-content">
+              <h3>Хoлoдец</h3>
+              <p>30 000 сум</p>
+              <p class="description">Chilled meat jelly, savory and rich.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/sveji.jpg" alt="Оливье">
+            <div class="card-content">
+              <h3>Оливье</h3>
+              <p>30 000 сум</p>
+              <p class="description">Classic salad with potatoes and mayo.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/sveji.jpg" alt="Мужской каприз">
+            <div class="card-content">
+              <h3>Мужской каприз</h3>
+              <p>30 000 сум</p>
+              <p class="description">Robust salad with meat and cheese.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/sveji.jpg" alt="Цезарь">
+            <div class="card-content">
+              <h3>Цезарь</h3>
+              <p>30 000 сум</p>
+              <p class="description">Crisp romaine with creamy Caesar dressing.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/sveji.jpg" alt="ююю">
+            <div class="card-content">
+              <h3>ююю</h3>
+              <p>30 000 сум</p>
+              <p class="description">Unique dish with local spices.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/sveji.jpg" alt="Хе салат">
+            <div class="card-content">
+              <h3>Хе салат</h3>
+              <p>30 000 сум</p>
+              <p class="description">Spicy raw fish salad, bold flavors.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/sveji.jpg" alt="Баклажановый салат">
+            <div class="card-content">
+              <h3>Баклажановый салат</h3>
+              <p>30 000 сум</p>
+              <p class="description">Eggplant salad with garlic and herbs.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/sveji.jpg" alt="Мясной ассорти">
+            <div class="card-content">
+              <h3>Мясной ассорти</h3>
+              <p>30 000 сум</p>
+              <p class="description">Assorted meats with tangy sauce.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/sveji.jpg" alt="Сырное ассорти">
+            <div class="card-content">
+              <h3>Сырное ассорти</h3>
+              <p>30 000 сум</p>
+              <p class="description">Variety of cheeses, creamy and sharp.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/sveji.jpg" alt="Кора икра">
+            <div class="card-content">
+              <h3>Кора икра</h3>
+              <p>30 000 сум</p>
+              <p class="description">Black caviar, salty and luxurious.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/sveji.jpg" alt="Кизил икра">
+            <div class="card-content">
+              <h3>Кизил икра</h3>
+              <p>30 000 сум</p>
+              <p class="description">Cornelian cherry spread, tart and sweet.</p>
+            </div>
           </div>
         </section>
       </section>
+    
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const cards = document.querySelectorAll('.card');
+          
+          cards.forEach(card => {
+            card.addEventListener('click', () => {
+              const description = card.querySelector('.description');
+              if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block';
+              } else {
+                description.style.display = 'none';
+              }
+            });
+          });
+        });
+      </script>
     </div>
 
    

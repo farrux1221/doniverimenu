@@ -17,7 +17,7 @@ a{
     z-index: -1000;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient( to left, #55050e, #680f30);
+    background: linear-gradient( to left, #113627, #113627);
     color: white;
     padding: 0px 20px;
 }
@@ -26,7 +26,7 @@ a{
     overflow-x: hidden;
     white-space: nowrap;
     /* background: #6a0dad; */
-    background: linear-gradient( to left, #55050e, #680f30);
+    background: linear-gradient( to left, #113627, #113627);
 
     padding: 10px;
 }
@@ -259,7 +259,7 @@ a{
     cursor: default;
   }
   .footer {
-    background: linear-gradient(90deg, #590519, #590d59);
+    background: linear-gradient(90deg, #113627, #113627);
    
     color: white;
     text-align: center;
@@ -388,6 +388,8 @@ body {
     white-space: nowrap;
 }
 
+
+
 .category-btn.active {
     background: #7a2cf2;
     color: white;
@@ -446,7 +448,11 @@ body {
 }
 
 
-
+#mijoz{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
 .leaf {
     z-index: -1;
     position: fixed;
