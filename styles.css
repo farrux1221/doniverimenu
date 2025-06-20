@@ -83,7 +83,7 @@ header h1 {
 header h1 {
     /* line-height: 60px; */
     font-size: 25px;
-    color: #4e1818;
+    color: #FFF;
 }
 
 header img {
@@ -96,7 +96,7 @@ header img {
 }
 
 header {
-    background: #b59393;
+    background: #466e60;
     position: sticky;
     border-radius: 8px;
     top: 0px;
