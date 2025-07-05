@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Chust Choyxonasi QR Menu - Shashliklar" />
+    <meta property="og:title" content="Chust Choyxonasi QR Menu" />
+    <meta property="og:description" content="Explore our delicious shashlik menu" />
+    <meta property="og:image" content="./img/chustlogo.png" />
+    <title>QR Menu</title>
+    <style>
+      .navbar { display: flex; align-items: center; }
+      .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+      .marquee-text { animation: marquee 10s linear infinite; }
+      @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="./img/chustlogo.jpg" alt="Chust Choyxonasi Logo" loading="lazy" />
+      </div>
+      <div class="marquee-container">
+        <div class="marquee-text">Чуст чойхонасига Хуш келибсиз!</div>
+      </div>
+    </nav>
+    <header>
+      <h1>Балиқлар</h1>
+      <a href="./index.html" aria-label="Back to homepage">
+        <img src="./img/exit.svg" alt="Back to Home" width="40" height="40" loading="lazy" />
+      </a>
+    </header>
+    <main>
+      <section class="products">
+        <section id="shashliklar" class="product-category active">
+          <div class="card">
+            <img src="./chust/chust1/oka7.jpg" alt="Qiyma Shashlik" loading="lazy" />
+            <div class="card-content">
+              <h3>Фарель мангал</h3>
+              <p>160 000 сум</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./chust/chust1/oka8.jpg" alt="Mol Go'sht Jaz Shashlik" loading="lazy" />
+            <div class="card-content">
+              <h3>Сазан мангал</h3>
+              <p>240 000 сум</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./chust/chust1/oka9.jpg" alt="Qo'y Go'sht Jaz Shashlik" loading="lazy" />
+            <div class="card-content">
+              <h3>Сазан қовурилган</h3>
+              <p>160 000 сум</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./chust/chust1/oka9.jpg" alt="Napaliyon Shashlik" loading="lazy" />
+            <div class="card-content">
+              <h3>Маринка</h3>
+              <p>220 000 сум</p>
+            </div>
+          </div>
+
+        </section>
+      </section>
+    </main>
+   
+  </body>
+</html>
+
+
+
+
+
+
+
+ 
