@@ -7,19 +7,6 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-
-  <style>
-    .description {
-      display: none;
-
-      margin-top: 10px;
-      font-style: italic;
-    }
-    .card {
-      cursor: pointer; /* Indicates the card is clickable */
-    }
-    /* Add your existing card styles here if any */
-  </style>
   <body>
     <nav class="navbar">
       <div class="logo">
@@ -29,218 +16,191 @@
         <div class="marquee-text">Чуст чойхонасига Хуш келибсиз!</div>
       </div>
     </nav>
+    <header>
+      <h1>салат</h1>
+      <a href="./index.html"
+        ><img src="./img/exit.svg" alt="" width="40" height="40"
+      /></a>
+    </header>
 
-    <div class="container">
-      <!-- Sahifa sarlavhasi -->
-      <header>
-        <h1>Салатлар</h1>
-        <a href="./index.html"
-          ><img src="./img/exit.svg" alt="" width="35" height="30"
-        /></a>
-      </header>
+    <section class="products">
+      <section id="salatlar" class="product-category active">
+        <div class="card">
+          <img src="./menuimg/choban.JPG" alt="" />
+          <div class="card-content">
+            <h3>Чобан салат</h3>
+            <p>25 000 сум</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./menuimg/doneverisalati.JPG" alt="" />
+          <div class="card-content">
+            <h3>DONEREVI Салати</h3>
+            <p>25 000 сум</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./menuimg/baqlajonlibon.JPG" alt="" />
+          <div class="card-content">
+            <h3>Бақлажонли Бонфиле</h3>
+            <p>25 000 сум</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./menuimg/baqlajonili.JPG" alt="">
+            <div class="card-content">
+              <h3>Бақлажон Салати</h3>
+              <p>65 000 сум</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./menuimg/bu" alt="">
+              <div class="card-content">
+                <h3>Буратта Салати</h3>
+                <p>20 000 сум</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="./menuimg/a" alt="">
+                <div class="card-content">
+                  <h3>Апельсинли Руккола Салати</h3>
+                  <p>30 000 сум</p>
+                </div>
+              </div>
+              <div class="card">
+                <img src="./menuimg/" alt="">
+                  <div class="card-content">
+                    <h3>Гречка Салат</h3>
+                    <p>30 000 сум</p>
+                  </div>
+                </div>
+        <div class="card">
+          <img src="./menuimg/" alt="" />
+          <div class="card-content">
+            <h3>Панжар Салати</h3>
+            <p>15 000 сум</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./img/imges/barjome.webp" alt="" />
+          <div class="card-content">
+            <h3>Товуқли Моццарелла Салати</h3>
+            <p>17 000 сум</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./img/imges/chortoq.webp" alt="" />
 
-      <!-- Mahsulotlar -->
-      <section class="products">
-        <section id="salatlar" class="product-category active">
-          <div class="card">
-            <img src="./chust/grechiski.png" alt="Себзий салат" />
-            <div class="card-content">
-              <h3>Греческий салат</h3>
-              <p>45 000 сум</p>
-              <p class="description">
-                Помидор черри, Бодринг, Светофор болгар, Сир фета, Зайтун, Қора
-                зайтун, Зайтун ёғи, Туз, Зелен микс,
-              </p>
-            </div>
+          <div class="card-content">
+            <h3>Тулум Салати</h3>
+            <p>17 000 сум</p>
           </div>
-          <!-- til -->
-          <div class="card">
-            <img src="./chust/til.JPG" alt="Мардонавое ассорти" />
-            <div class="card-content">
-              <h3>Тил салат</h3>
-              <p>50 000 сум</p>
-              <p class="description">
-                Тил (колбасный), Помидори черри, Бодринг, Сариқ болгар, Зелен
-                микс, Зайтун ёғи, Приправа хмели-сунели, Туз,
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="./chust/sveji.JPG" width="250" alt="Svejiy salat" />
-            <div class="card-content">
-              <h3>Свежий салат</h3>
-              <p>35 000 сум</p>
-              <p class="description">
-                Помидор, Бодринг, Редиска, Свежий чеснок, Чеснок, Зелен укроп,
-                Зелен кашнич, Кўк пиёз, Светофор болгар, Гаримдори.
-              </p>
-            </div>
-          </div>
-          <!--  -->
-          <div class="card">
-            <img src="./chust/aliviya.png" alt="Оливье" />
-            <div class="card-content">
-              <h3>Оливье</h3>
-              <p>39 000 сум</p>
-              <p class="description">
-                Мол гўшти, Картошка, Сабзи, Бодринг, Яшил нўҳот, Майонез, Туз,
-                Мурч,
-              </p>
-            </div>
-          </div>
-          <!--  -->
-          <div class="card">
-            <img src="./chust/baqalajon salati.JPG" alt="Баклажановый салат" />
-            <div class="card-content">
-              <h3>Баклажановый салат</h3>
-              <p>42 000 сум</p>
-              <p class="description">
-                Баклажон, Қозиқорин, Помидори черри, Сир брынза, Зелен руккола,
-                Зайтун ёғи, Соус балсамик, Туз.
-              </p>
-            </div>
-          </div>
-          <!-- yapon -->
-          <div class="card">
-            <img src="./chust/baxor.JPG" alt="Бахор салат" />
-            <div class="card-content">
-              <h3>Бахор салат</h3>
-              <p>35 000 сум</p>
-              <p class="description">
-                Помидор, Бодринг, Чеснок, Қизил пиёз, Редиска, Светофор болгар,
-                Зелен микс, Зайтун ёғи, Лимон сўки, Туз
-              </p>
-            </div>
-          </div>
+        </div>
+        <div class="card">
+          <img src="./img/imges/colaa.jpg" alt="" />
 
-          <div class="card">
-            <img src="./chust/suzma.JPG" alt="Сузма" />
-            <div class="card-content">
-              <h3>Сузма</h3>
-              <p>8 000 сум</p>
-              <p class="description">
-                Сузма, Зелен кашнич, Зелен укроп, Райҳон, Туз.
-              </p>
-            </div>
+          <div class="card-content">
+            <h3>Оливье Салати</h3>
+            <p>13 000 сум</p>
+            <p>17 000 сум</p>
           </div>
+        </div>
+        <div class="card">
+          <img src="./img/imges/pepsi.webp" alt="" />
 
-          <div class="card">
-            <img src="./chust/chiroqchi.JPG" alt="Чирозий" />
-            <div class="card-content">
-              <h3>Чирокчи</h3>
-              <p>35 000 сум</p>
-              <p class="description">
-                Помидор, Бодринг, Оқ пиёз, Зелен укроп, Зелен кашнич, Чеснок,
-                Сузма, Соус чили.
-              </p>
-            </div>
+          <div class="card-content">
+            <h3>Оливье Салати</h3>
+            <p>13 000 сум</p>
+            <p>18 000 сум</p>
           </div>
-         
-          <div class="card">
-            <img src="./chust/yaponiski salat.JPG" alt="Салене ассорти" />
-            <div class="card-content">
-              <h3>Японский</h3>
-              <p>45 000 сум</p>
-              <p class="description">
-                Мол гўшти, Бодринг, Помидор, Светофор болгар, Қизил пиёз, Қизил
-                лўвия, Чеснок,Зелен, кашнич Соя, соуси Семи́чка ёғи,Приправа,
-                паприка Туз.
-              </p>
-            </div>
-          </div>
+        </div>
+        <div class="card">
+          <img src="./img/imges/fanta1litr.webp" alt="" />
 
-          <div class="card">
-            <img src="./chust/smak.JPG" alt="Smak" />
-            <div class="card-content">
-              <h3>Смак</h3>
-              <p>39 000 сум</p>
-              <p class="description">
-                Помидор, Колбаса, Сир, Эдем Сухарики, Чеснок, Зелен, укроп
-                Зелен, кашнич Майонез, Туз, Мурч.
-              </p>
-            </div>
+          <div class="card-content">
+            <h3>Аччиқ Езме</h3>
+            <p>15 000 сум</p>
+            <p>20 000 сум</p>
           </div>
+        </div>
 
-          <div class="card">
-            <img src="./chust/achuchuk.JPG" alt="Smak" />
-            <div class="card-content">
-              <h3>Ачучу лаган </h3>
-              <p>25 000 сум</p>
-              <p class="description">Помидор, Оқ пиёз, Райҳон</p>
-            </div>
-          </div>
+        <div class="card">
+          <img src="./img/imges/gazlilsuv.jpg" alt="Olivye salati" />
 
-          <div class="card">
-            <img src="./chust/murskoy kapres.JPG" alt="Smak" />
-            <div class="card-content">
-              <h3>Мужской каприз</h3>
-              <p>39 000 сум</p>
-              <p class="description">
-                Копчёный колбаса, Индейка филеси, Мол гўшти (колбасный), Қозӣ,
-                Бодринг, Яшил нўҳот (консерва), Майонез, Сир пармезан, Туз,
-                Мурч.
-              </p>
-            </div>
+          <div class="card-content">
+            <h3>Мутаббаль</h3>
+            <p>6 000 сум</p>
           </div>
+        </div>
+        <div class="card">
+          <img src="./img/imges/bezgaz.jpg" alt="Olivye salati" />
 
-          <div class="card">
-            <img src="./chust/damskiy kapriz.JPG" alt="Smak" />
-            <div class="card-content">
-              <h3>Дамский каприз</h3>
-              <p>40 000 сум</p>
-              <p class="description">
-                Индейка филеси, Копчёный колбаса, Бодринг, Жўҳори (консерва),
-                Яшил нўҳот (консерва), Майонез, Туз.
-              </p>
-            </div>
+          <div class="card-content">
+            <h3>Микс Мезе</h3>
+            <p>5 000 сум</p>
           </div>
+        </div>
+        <!--  -->
+        <div class="card">
+          <img src="./img/imges/kamponli.webp" alt="Olivye salati" />
 
-          <div class="card">
-            <img src="./chust/chust1/sezar.png" alt="Smak" />
-            <div class="card-content">
-              <h3>Цезарь</h3>
-              <p>39 000 сум</p>
-              <p class="description">
-                Индейка филеси, Помидори черри, Бедана туҳум, Салат айсберг,
-                Соус цезарь, Сир пармезан, Туз.
-              </p>
-            </div>
+          <div class="card-content">
+            <h3>Сезар Салати</h3>
+            <p>25 000 сум</p>
           </div>
-          <div class="card">
-            <img src="./chust/chust1/qattiqli.png" alt="Smak" />
-            <div class="card-content">
-              <h3>Қатиқли салат</h3>
-              <p>12 000 сум</p>
-              <p class="description">
-                Қатиқ, Зелен укроп, Зелен кашнич, Кўк пиёз, Бодринг, Редиска,
-                Туз.
-              </p>
-            </div>
+        </div>
+        <div class="card">
+          <img src="./img/imges/ayctisuv.webp" alt="Olivye salati" />
+
+          <div class="card-content">
+            <h3>Айсти</h3>
+            <p>40 000 сум</p>
           </div>
-        
-        </section>
+        </div>
+        <div class="card">
+          <img src="./img/imges/apsinli.webp" alt="Olivye salati" />
+
+          <div class="card-content">
+            <h3>Мoхито</h3>
+            <p>40 000 сум</p>
+          </div>
+        </div>
+
+        <!--  -->
+        <div class="card">
+          <img src="./img/imges/18+.webp" alt="" />
+
+          <div class="card-content">
+            <h3>18+</h3>
+            <p>16 000 сум</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./img/imges/flesh.jpg" alt="" />
+
+          <div class="card-content">
+            <h3>Флеш</h3>
+            <p>15 000 сум</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./img/imges/choy oddiy.webp" alt="" />
+
+          <div class="card-content">
+            <h3>Чой-оддий</h3>
+            <p>5 000 сум</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./img/lomonchoy.jpg" alt="" />
+
+          <div class="card-content">
+            <h3>Лимон-чой</h3>
+            <p>10 000 сум</p>
+          </div>
+        </div>
       </section>
-
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const cards = document.querySelectorAll(".card");
-
-          cards.forEach((card) => {
-            card.addEventListener("click", () => {
-              const description = card.querySelector(".description");
-              if (
-                description.style.display === "none" ||
-                description.style.display === ""
-              ) {
-                description.style.display = "block";
-              } else {
-                description.style.display = "none";
-              }
-            });
-          });
-        });
-      </script>
-    </div>
+    </section>
 
     <!-- FontAwesome iconlarini ishlashi uchun -->
     <script
