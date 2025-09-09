@@ -1,209 +1,416 @@
 <!DOCTYPE html>
 <html lang="uz">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Фаввора-QR Menu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <!-- <button type="button" id="mijoz" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#opinionModal">
-      Izoh qoldiring
-    </button> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #d35400;
+            --secondary-color: #e67e22;
+            --accent-color: #f39c12;
+            --light-color: #fef5e7;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding-bottom: 70px;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo img {
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        
+        .marquee-container {
+            flex: 1;
+            overflow: hidden;
+            margin: 0 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 8px 0;
+        }
+        
+        .marquee-text {
+            white-space: nowrap;
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        
+        .category-container {
+            padding: 20px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .category-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .category {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 12px;
+            padding: 25px 15px;
+            text-decoration: none;
+            color: var(--dark-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            color: var(--primary-color);
+        }
+        
+        .category:hover:before {
+            transform: scaleX(1);
+        }
+        
+        .category svg {
+            margin-bottom: 15px;
+            width: 50px;
+            height: 50px;
+            color: var(--primary-color);
+        }
+        
+        .category span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--dark-color), #2c3e50);
+            color: white;
+            padding: 25px 15px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        .copyright a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+        
+        #mijoz {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            z-index: 99;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .btn-close {
+            filter: invert(1);
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .marquee-container {
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            .category-list {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .social-icons {
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .category-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .marquee-text {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="mijoz" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#opinionModal">
+        <i class="fas fa-comment-alt"></i>
+    </button>
   
     <nav class="navbar">
-      <div class="logo">
-        <img src="./img/chustlogo.jpg" alt="Fayz Cafe" width="90" height="90" />
-      </div>
-      <div class="marquee-container">
-        <div class="marquee-text">DONEREVIга Хуш келибсиз!</div>
-      </div>
+        <div class="logo">
+            <img src="./img/chustlogo.jpg" alt="Fayz Cafe" width="90" height="90" />
+        </div>
+        <div class="marquee-container">
+            <div class="marquee-text">DONEREVIга Хуш келибсиз! Сизни кўриганимиздан хурсандмиз!</div>
+        </div>
     </nav>
    
     <div class="category-container">
-      <div class="category-list">
-        <a href="./1.html" class="category">
-          <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="plate-utensils" class="svg-inline--fa fa-plate-utensils fa-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" color="#6682A9" width="30">
-            <g class="fa-duotone-group">
-              <path class="fa-secondary" fill="currentColor" d="M152 383.8C192.5 441.9 259.8 480 336 480c89.4 0 166.6-52.4 202.6-128.2c-23.9-2-44-17.2-53.2-38.2C462.2 373.5 404.1 416 336 416c-88.4 0-160-71.6-160-160c0-.2 0-.4 0-.6c-7.4 4.8-15.5 8.6-24 11.4V383.8zm69.4-239.4C250.5 114.5 291.1 96 336 96c63.3 0 118.1 36.8 144 90.2V160c0-25 4.3-46.7 11.3-65.5C451 55.8 396.3 32 336 32c-48.9 0-94.2 15.7-131.1 42.3l16.3 69.2c.1 .3 .1 .5 .2 .8zM464 256a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"></path>
-              <path class="fa-primary" fill="currentColor" d="M48 23.5c-.2-4-3.3-7.2-7.3-7.5s-7.6 2.3-8.5 6.1L1.9 150.9C.6 156.3 0 161.9 0 167.5c0 39.9 32.2 72.2 72 72.5V472c0 13.3 10.7 24 24 24s24-10.7 24-24V240c39.8-.3 72-32.6 72-72.5c0-5.6-.6-11.2-1.9-16.6L159.8 22.2c-.9-3.9-4.5-6.5-8.5-6.1s-7.1 3.5-7.3 7.5L136.5 152H119.1L103.9 23.1c-.5-4-3.9-7.1-7.9-7.1s-7.5 3-7.9 7.1L72.9 152H55.5L48 23.5zM512 160V288c0 17.7 14.3 32 32 32h48V472c0 13.3 10.7 24 24 24s24-10.7 24-24V320 216 36.9c0-11.5-9.3-20.9-20.9-20.9c-2.1 0-4.1 .3-6.1 1C596.2 23.2 512 59.2 512 160z"></path>
-            </g>
-          </svg>
-          <span>Garnir</span>
-        </a>
-        <a href="./2.html" class="category">
-          <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="plate-utensils" class="svg-inline--fa fa-plate-utensils fa-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" color="#6682A9" width="30">
-            <g class="fa-duotone-group">
-              <path class="fa-secondary" fill="currentColor" d="M152 383.8C192.5 441.9 259.8 480 336 480c89.4 0 166.6-52.4 202.6-128.2c-23.9-2-44-17.2-53.2-38.2C462.2 373.5 404.1 416 336 416c-88.4 0-160-71.6-160-160c0-.2 0-.4 0-.6c-7.4 4.8-15.5 8.6-24 11.4V383.8zm69.4-239.4C250.5 114.5 291.1 96 336 96c63.3 0 118.1 36.8 144 90.2V160c0-25 4.3-46.7 11.3-65.5C451 55.8 396.3 32 336 32c-48.9 0-94.2 15.7-131.1 42.3l16.3 69.2c.1 .3 .1 .5 .2 .8zM464 256a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"></path>
-              <path class="fa-primary" fill="currentColor" d="M48 23.5c-.2-4-3.3-7.2-7.3-7.5s-7.6 2.3-8.5 6.1L1.9 150.9C.6 156.3 0 161.9 0 167.5c0 39.9 32.2 72.2 72 72.5V472c0 13.3 10.7 24 24 24s24-10.7 24-24V240c39.8-.3 72-32.6 72-72.5c0-5.6-.6-11.2-1.9-16.6L159.8 22.2c-.9-3.9-4.5-6.5-8.5-6.1s-7.1 3.5-7.3 7.5L136.5 152H119.1L103.9 23.1c-.5-4-3.9-7.1-7.9-7.1s-7.5 3-7.9 7.1L72.9 152H55.5L48 23.5zM512 160V288c0 17.7 14.3 32 32 32h48V472c0 13.3 10.7 24 24 24s24-10.7 24-24V320 216 36.9c0-11.5-9.3-20.9-20.9-20.9c-2.1 0-4.1 .3-6.1 1C596.2 23.2 512 59.2 512 160z"></path>
-            </g>
-          </svg>
-          <span>Стеaк Бургер</span>
-        </a>
-        <a href="./nonushta.html" class="category">
-          <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="plate-utensils" class="svg-inline--fa fa-plate-utensils fa-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" color="#6682A9" width="30">
-            <g class="fa-duotone-group">
-              <path class="fa-secondary" fill="currentColor" d="M152 383.8C192.5 441.9 259.8 480 336 480c89.4 0 166.6-52.4 202.6-128.2c-23.9-2-44-17.2-53.2-38.2C462.2 373.5 404.1 416 336 416c-88.4 0-160-71.6-160-160c0-.2 0-.4 0-.6c-7.4 4.8-15.5 8.6-24 11.4V383.8zm69.4-239.4C250.5 114.5 291.1 96 336 96c63.3 0 118.1 36.8 144 90.2V160c0-25 4.3-46.7 11.3-65.5C451 55.8 396.3 32 336 32c-48.9 0-94.2 15.7-131.1 42.3l16.3 69.2c.1 .3 .1 .5 .2 .8zM464 256a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"></path>
-              <path class="fa-primary" fill="currentColor" d="M48 23.5c-.2-4-3.3-7.2-7.3-7.5s-7.6 2.3-8.5 6.1L1.9 150.9C.6 156.3 0 161.9 0 167.5c0 39.9 32.2 72.2 72 72.5V472c0 13.3 10.7 24 24 24s24-10.7 24-24V240c39.8-.3 72-32.6 72-72.5c0-5.6-.6-11.2-1.9-16.6L159.8 22.2c-.9-3.9-4.5-6.5-8.5-6.1s-7.1 3.5-7.3 7.5L136.5 152H119.1L103.9 23.1c-.5-4-3.9-7.1-7.9-7.1s-7.5 3-7.9 7.1L72.9 152H55.5L48 23.5zM512 160V288c0 17.7 14.3 32 32 32h48V472c0 13.3 10.7 24 24 24s24-10.7 24-24V320 216 36.9c0-11.5-9.3-20.9-20.9-20.9c-2.1 0-4.1 .3-6.1 1C596.2 23.2 512 59.2 512 160z"></path>
-            </g>
-          </svg>
-          <span>Nonushta</span>
-        </a>
-        <a href="./nonlar.html" class="category">
-          <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="shish-kebab" class="svg-inline--fa fa-shish-kebab fa-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" color="#6682A9" width="30">
-            <g class="fa-duotone-group">
-              <path class="fa-secondary" fill="currentColor" d="M393.4 73.4c12.5-12.5 32.8-12.5 45.3 0c10.4 10.4 12.2 26.4 5.1 38.6c-8.8 15.3-3.6 34.9 11.7 43.7s34.9 3.6 43.7-11.7c21.2-36.7 16.2-84.5-15.3-115.9c-37.5-37.5-98.3-37.5-135.8 0c-25.7 25.7-33.8 62.4-24.3 94.9c1.8 6.1 2.4 11.4 2.1 15.2c-.1 2-.5 2.9-.6 3.2l-31 31 45.3 45.3 31.1-31.1c13.1-13.1 18-29.4 19.1-43.4c1.1-13.8-1.3-27.2-4.5-38c-3.2-11-.5-23.1 8.1-31.7zM241.7 315.6l-45.3-45.3-30.1 30.1 45.3 45.3 30.1-30.1zm-128 128L68.4 398.3l-59 59c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l59-59zM325.3 141.5a.1 .1 0 1 0 -.1-.2 .1 .1 0 1 0 .1 .2z"></path>
-              <path class="fa-primary" fill="currentColor" d="M203.7 138.3l-41.4 41.4c-15.6 15.6-15.6 40.9 0 56.6L275.7 349.7c15.6 15.6 40.9 15.6 56.6 0l41.4-41.4c15.6-15.6 15.6-40.9 0-56.6L260.3 138.3c-15.6-15.6-40.9-15.6-56.6 0zm-71.4 128c-15.6-15.6-40.9-15.6-56.6 0L34.3 307.7c-15.6 15.6-15.6 40.9 0 56.6L147.7 477.7c15.6 15.6 40.9 15.6 56.6 0l41.4-41.4c15.6-15.6 15.6-40.9 0-56.6L132.3 266.3z"></path>
-            </g>
-          </svg>
-          <span>Non</span>
-        </a>
-        <a href="./danar.html" class="category">
-          <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="shish-kebab" class="svg-inline--fa fa-shish-kebab fa-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" color="#6682A9" width="30">
-            <g class="fa-duotone-group">
-              <path class="fa-secondary" fill="currentColor" d="M393.4 73.4c12.5-12.5 32.8-12.5 45.3 0c10.4 10.4 12.2 26.4 5.1 38.6c-8.8 15.3-3.6 34.9 11.7 43.7s34.9 3.6 43.7-11.7c21.2-36.7 16.2-84.5-15.3-115.9c-37.5-37.5-98.3-37.5-135.8 0c-25.7 25.7-33.8 62.4-24.3 94.9c1.8 6.1 2.4 11.4 2.1 15.2c-.1 2-.5 2.9-.6 3.2l-31 31 45.3 45.3 31.1-31.1c13.1-13.1 18-29.4 19.1-43.4c1.1-13.8-1.3-27.2-4.5-38c-3.2-11-.5-23.1 8.1-31.7zM241.7 315.6l-45.3-45.3-30.1 30.1 45.3 45.3 30.1-30.1zm-128 128L68.4 398.3l-59 59c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l59-59zM325.3 141.5a.1 .1 0 1 0 -.1-.2 .1 .1 0 1 0 .1 .2z"></path>
-              <path class="fa-primary" fill="currentColor" d="M203.7 138.3l-41.4 41.4c-15.6 15.6-15.6 40.9 0 56.6L275.7 349.7c15.6 15.6 40.9 15.6 56.6 0l41.4-41.4c15.6-15.6 15.6-40.9 0-56.6L260.3 138.3c-15.6-15.6-40.9-15.6-56.6 0zm-71.4 128c-15.6-15.6-40.9-15.6-56.6 0L34.3 307.7c-15.6 15.6-15.6 40.9 0 56.6L147.7 477.7c15.6 15.6 40.9 15.6 56.6 0l41.4-41.4c15.6-15.6 15.6-40.9 0-56.6L132.3 266.3z"></path>
-            </g>
-          </svg>
-          <span>Donar</span>
-        </a>
-        <a href="./bar.html" class="category">
-          <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="plate-utensils" class="svg-inline--fa fa-plate-utensils fa-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" color="#6682A9" width="30">
-            <g class="fa-duotone-group">
-              <path class="fa-secondary" fill="currentColor" d="M152 383.8C192.5 441.9 259.8 480 336 480c89.4 0 166.6-52.4 202.6-128.2c-23.9-2-44-17.2-53.2-38.2C462.2 373.5 404.1 416 336 416c-88.4 0-160-71.6-160-160c0-.2 0-.4 0-.6c-7.4 4.8-15.5 8.6-24 11.4V383.8zm69.4-239.4C250.5 114.5 291.1 96 336 96c63.3 0 118.1 36.8 144 90.2V160c0-25 4.3-46.7 11.3-65.5C451 55.8 396.3 32 336 32c-48.9 0-94.2 15.7-131.1 42.3l16.3 69.2c.1 .3 .1 .5 .2 .8zM464 256a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"></path>
-              <path class="fa-primary" fill="currentColor" d="M48 23.5c-.2-4-3.3-7.2-7.3-7.5s-7.6 2.3-8.5 6.1L1.9 150.9C.6 156.3 0 161.9 0 167.5c0 39.9 32.2 72.2 72 72.5V472c0 13.3 10.7 24 24 24s24-10.7 24-24V240c39.8-.3 72-32.6 72-72.5c0-5.6-.6-11.2-1.9-16.6L159.8 22.2c-.9-3.9-4.5-6.5-8.5-6.1s-7.1 3.5-7.3 7.5L136.5 152H119.1L103.9 23.1c-.5-4-3.9-7.1-7.9-7.1s-7.5 3-7.9 7.1L72.9 152H55.5L48 23.5zM512 160V288c0 17.7 14.3 32 32 32h48V472c0 13.3 10.7 24 24 24s24-10.7 24-24V320 216 36.9c0-11.5-9.3-20.9-20.9-20.9c-2.1 0-4.1 .3-6.1 1C596.2 23.2 512 59.2 512 160z"></path>
-            </g>
-          </svg>
-          <span>bar</span>
-        </a>
-        <a href="./salat.html" class="category">
-          <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="glass" class="svg-inline--fa fa-glass fa-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" color="#6682A9" width="25">
-            <g class="fa-duotone-group">
-              <path class="fa-secondary" fill="currentColor" d="M8.6 10.2C14.6 3.7 23.1 0 32 0H352c8.9 0 17.4 3.7 23.4 10.2s9.1 15.2 8.5 24.1L355.1 437.7c-3 41.9-37.8 74.3-79.8 74.3H108.7c-42 0-76.8-32.4-79.8-74.3L.1 34.3c-.6-8.9 2.4-17.6 8.5-24.1zM66.4 64L92.7 433.1c.6 8.4 7.6 14.9 16 14.9H275.3c8.4 0 15.4-6.5 16-14.9L317.6 64H66.4z"></path>
-              <path class="fa-primary" fill="currentColor" d="M313.1 128H70.9L92.7 433.1c.6 8.4 7.6 14.9 16 14.9H275.3c8.4 0 15.4-6.5 16-14.9L313.1 128z"></path>
-            </g>
-          </svg>
-          <span>Salat</span>
-        </a>
-        <a href="./shorvalar.html" class="category">
-          <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="plate-utensils" class="svg-inline--fa fa-plate-utensils fa-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" color="#6682A9" width="30">
-            <g class="fa-duotone-group">
-              <path class="fa-secondary" fill="currentColor" d="M152 383.8C192.5 441.9 259.8 480 336 480c89.4 0 166.6-52.4 202.6-128.2c-23.9-2-44-17.2-53.2-38.2C462.2 373.5 404.1 416 336 416c-88.4 0-160-71.6-160-160c0-.2 0-.4 0-.6c-7.4 4.8-15.5 8.6-24 11.4V383.8zm69.4-239.4C250.5 114.5 291.1 96 336 96c63.3 0 118.1 36.8 144 90.2V160c0-25 4.3-46.7 11.3-65.5C451 55.8 396.3 32 336 32c-48.9 0-94.2 15.7-131.1 42.3l16.3 69.2c.1 .3 .1 .5 .2 .8zM464 256a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"></path>
-              <path class="fa-primary" fill="currentColor" d="M48 23.5c-.2-4-3.3-7.2-7.3-7.5s-7.6 2.3-8.5 6.1L1.9 150.9C.6 156.3 0 161.9 0 167.5c0 39.9 32.2 72.2 72 72.5V472c0 13.3 10.7 24 24 24s24-10.7 24-24V240c39.8-.3 72-32.6 72-72.5c0-5.6-.6-11.2-1.9-16.6L159.8 22.2c-.9-3.9-4.5-6.5-8.5-6.1s-7.1 3.5-7.3 7.5L136.5 152H119.1L103.9 23.1c-.5-4-3.9-7.1-7.9-7.1s-7.5 3-7.9 7.1L72.9 152H55.5L48 23.5zM512 160V288c0 17.7 14.3 32 32 32h48V472c0 13.3 10.7 24 24 24s24-10.7 24-24V320 216 36.9c0-11.5-9.3-20.9-20.9-20.9c-2.1 0-4.1 .3-6.1 1C596.2 23.2 512 59.2 512 160z"></path>
-            </g>
-          </svg>
-          <span>Sho'rvalar</span>
-        </a>
-        <a href="./tandir.html" class="category">
-          <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="plate-utensils" class="svg-inline--fa fa-plate-utensils fa-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" color="#6682A9" width="30">
-            <g class="fa-duotone-group">
-              <path class="fa-secondary" fill="currentColor" d="M152 383.8C192.5 441.9 259.8 480 336 480c89.4 0 166.6-52.4 202.6-128.2c-23.9-2-44-17.2-53.2-38.2C462.2 373.5 404.1 416 336 416c-88.4 0-160-71.6-160-160c0-.2 0-.4 0-.6c-7.4 4.8-15.5 8.6-24 11.4V383.8zm69.4-239.4C250.5 114.5 291.1 96 336 96c63.3 0 118.1 36.8 144 90.2V160c0-25 4.3-46.7 11.3-65.5C451 55.8 396.3 32 336 32c-48.9 0-94.2 15.7-131.1 42.3l16.3 69.2c.1 .3 .1 .5 .2 .8zM464 256a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"></path>
-              <path class="fa-primary" fill="currentColor" d="M48 23.5c-.2-4-3.3-7.2-7.3-7.5s-7.6 2.3-8.5 6.1L1.9 150.9C.6 156.3 0 161.9 0 167.5c0 39.9 32.2 72.2 72 72.5V472c0 13.3 10.7 24 24 24s24-10.7 24-24V240c39.8-.3 72-32.6 72-72.5c0-5.6-.6-11.2-1.9-16.6L159.8 22.2c-.9-3.9-4.5-6.5-8.5-6.1s-7.1 3.5-7.3 7.5L136.5 152H119.1L103.9 23.1c-.5-4-3.9-7.1-7.9-7.1s-7.5 3-7.9 7.1L72.9 152H55.5L48 23.5zM512 160V288c0 17.7 14.3 32 32 32h48V472c0 13.3 10.7 24 24 24s24-10.7 24-24V320 216 36.9c0-11.5-9.3-20.9-20.9-20.9c-2.1 0-4.1 .3-6.1 1C596.2 23.2 512 59.2 512 160z"></path>
-            </g>
-          </svg>
-          <span>Tandir</span>
-        </a>
-        <a href="./mangal.html" class="category">
-          <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="plate-utensils" class="svg-inline--fa fa-plate-utensils fa-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" color="#6682A9" width="30">
-            <g class="fa-duotone-group">
-              <path class="fa-secondary" fill="currentColor" d="M152 383.8C192.5 441.9 259.8 480 336 480c89.4 0 166.6-52.4 202.6-128.2c-23.9-2-44-17.2-53.2-38.2C462.2 373.5 404.1 416 336 416c-88.4 0-160-71.6-160-160c0-.2 0-.4 0-.6c-7.4 4.8-15.5 8.6-24 11.4V383.8zm69.4-239.4C250.5 114.5 291.1 96 336 96c63.3 0 118.1 36.8 144 90.2V160c0-25 4.3-46.7 11.3-65.5C451 55.8 396.3 32 336 32c-48.9 0-94.2 15.7-131.1 42.3l16.3 69.2c.1 .3 .1 .5 .2 .8zM464 256a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"></path>
-              <path class="fa-primary" fill="currentColor" d="M48 23.5c-.2-4-3.3-7.2-7.3-7.5s-7.6 2.3-8.5 6.1L1.9 150.9C.6 156.3 0 161.9 0 167.5c0 39.9 32.2 72.2 72 72.5V472c0 13.3 10.7 24 24 24s24-10.7 24-24V240c39.8-.3 72-32.6 72-72.5c0-5.6-.6-11.2-1.9-16.6L159.8 22.2c-.9-3.9-4.5-6.5-8.5-6.1s-7.1 3.5-7.3 7.5L136.5 152H119.1L103.9 23.1c-.5-4-3.9-7.1-7.9-7.1s-7.5 3-7.9 7.1L72.9 152H55.5L48 23.5zM512 160V288c0 17.7 14.3 32 32 32h48V472c0 13.3 10.7 24 24 24s24-10.7 24-24V320 216 36.9c0-11.5-9.3-20.9-20.9-20.9c-2.1 0-4.1 .3-6.1 1C596.2 23.2 512 59.2 512 160z"></path>
-            </g>
-          </svg>
-          <span>Mangal</span>
-        </a>
-        <a href="./shirinliklar.html" class="category">
-          <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="shish-kebab" class="svg-inline--fa fa-shish-kebab fa-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" color="#6682A9" width="30">
-            <g class="fa-duotone-group">
-              <path class="fa-secondary" fill="currentColor" d="M393.4 73.4c12.5-12.5 32.8-12.5 45.3 0c10.4 10.4 12.2 26.4 5.1 38.6c-8.8 15.3-3.6 34.9 11.7 43.7s34.9 3.6 43.7-11.7c21.2-36.7 16.2-84.5-15.3-115.9c-37.5-37.5-98.3-37.5-135.8 0c-25.7 25.7-33.8 62.4-24.3 94.9c1.8 6.1 2.4 11.4 2.1 15.2c-.1 2-.5 2.9-.6 3.2l-31 31 45.3 45.3 31.1-31.1c13.1-13.1 18-29.4 19.1-43.4c1.1-13.8-1.3-27.2-4.5-38c-3.2-11-.5-23.1 8.1-31.7zM241.7 315.6l-45.3-45.3-30.1 30.1 45.3 45.3 30.1-30.1zm-128 128L68.4 398.3l-59 59c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l59-59zM325.3 141.5a.1 .1 0 1 0 -.1-.2 .1 .1 0 1 0 .1 .2z"></path>
-              <path class="fa-primary" fill="currentColor" d="M203.7 138.3l-41.4 41.4c-15.6 15.6-15.6 40.9 0 56.6L275.7 349.7c15.6 15.6 40.9 15.6 56.6 0l41.4-41.4c15.6-15.6 15.6-40.9 0-56.6L260.3 138.3c-15.6-15.6-40.9-15.6-56.6 0zm-71.4 128c-15.6-15.6-40.9-15.6-56.6 0L34.3 307.7c-15.6 15.6-15.6 40.9 0 56.6L147.7 477.7c15.6 15.6 40.9 15.6 56.6 0l41.4-41.4c15.6-15.6 15.6-40.9 0-56.6L132.3 266.3z"></path>
-            </g>
-          </svg>
-          <span>Shirinlik</span>
-        </a>
-       
-        <a href="./pishloq.html" class="category">
-          <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="plate-utensils" class="svg-inline--fa fa-plate-utensils fa-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" color="#6682A9" width="30">
-            <g class="fa-duotone-group">
-              <path class="fa-secondary" fill="currentColor" d="M152 383.8C192.5 441.9 259.8 480 336 480c89.4 0 166.6-52.4 202.6-128.2c-23.9-2-44-17.2-53.2-38.2C462.2 373.5 404.1 416 336 416c-88.4 0-160-71.6-160-160c0-.2 0-.4 0-.6c-7.4 4.8-15.5 8.6-24 11.4V383.8zm69.4-239.4C250.5 114.5 291.1 96 336 96c63.3 0 118.1 36.8 144 90.2V160c0-25 4.3-46.7 11.3-65.5C451 55.8 396.3 32 336 32c-48.9 0-94.2 15.7-131.1 42.3l16.3 69.2c.1 .3 .1 .5 .2 .8zM464 256a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"></path>
-              <path class="fa-primary" fill="currentColor" d="M48 23.5c-.2-4-3.3-7.2-7.3-7.5s-7.6 2.3-8.5 6.1L1.9 150.9C.6 156.3 0 161.9 0 167.5c0 39.9 32.2 72.2 72 72.5V472c0 13.3 10.7 24 24 24s24-10.7 24-24V240c39.8-.3 72-32.6 72-72.5c0-5.6-.6-11.2-1.9-16.6L159.8 22.2c-.9-3.9-4.5-6.5-8.5-6.1s-7.1 3.5-7.3 7.5L136.5 152H119.1L103.9 23.1c-.5-4-3.9-7.1-7.9-7.1s-7.5 3-7.9 7.1L72.9 152H55.5L48 23.5zM512 160V288c0 17.7 14.3 32 32 32h48V472c0 13.3 10.7 24 24 24s24-10.7 24-24V320 216 36.9c0-11.5-9.3-20.9-20.9-20.9c-2.1 0-4.1 .3-6.1 1C596.2 23.2 512 59.2 512 160z"></path>
-            </g>
-          </svg>
-          <span>Pishloqli assorti</span>
-        </a>
-        
-   
-        
-        
-       
-       
-        
-      </div>
+        <div class="category-list">
+            <a href="./1.html" class="category">
+                <i class="fas fa-utensils fa-2x"></i>
+                <span>Garnir</span>
+            </a>
+            <a href="./2.html" class="category">
+                <i class="fas fa-hamburger fa-2x"></i>
+                <span>Стеaк Бургер</span>
+            </a>
+            <a href="./nonushta.html" class="category">
+                <i class="fas fa-egg fa-2x"></i>
+                <span>Nonushta</span>
+            </a>
+            <a href="./nonlar.html" class="category">
+                <i class="fas fa-bread-slice fa-2x"></i>
+                <span>Non</span>
+            </a>
+            <a href="./danar.html" class="category">
+                <i class="fas fa-drumstick-bite fa-2x"></i>
+                <span>Donar</span>
+            </a>
+            <a href="./bar.html" class="category">
+                <i class="fas fa-glass-cheers fa-2x"></i>
+                <span>Bar</span>
+            </a>
+            <a href="./salat.html" class="category">
+                <i class="fas fa-leaf fa-2x"></i>
+                <span>Salat</span>
+            </a>
+            <a href="./shorvalar.html" class="category">
+                <i class="fas fa-utensil-spoon fa-2x"></i>
+                <span>Sho'rvalar</span>
+            </a>
+            <a href="./tandir.html" class="category">
+                <i class="fas fa-fire fa-2x"></i>
+                <span>Tandir</span>
+            </a>
+            <a href="./mangal.html" class="category">
+                <i class="fas fa-fire-alt fa-2x"></i>
+                <span>Mangal</span>
+            </a>
+            <a href="./shirinliklar.html" class="category">
+                <i class="fas fa-ice-cream fa-2x"></i>
+                <span>Shirinlik</span>
+            </a>
+            <a href="./pishloq.html" class="category">
+                <i class="fas fa-cheese fa-2x"></i>
+                <span>Pishloqli assorti</span>
+            </a>
+        </div>
     </div>
 
     <footer class="footer">
-      <div class="social-icons">
-        <a href="https://t.me/Chustchoyhona" title="Telegram"><i class="fa-brands fa-telegram"></i> Телеграм</a>
-        <a href="https://www.instagram.com/chust.choyxonasi?igsh=eDN4OHg3cHd0b2Nn" title="Instagram"><i class="fa-brands fa-instagram"></i> Инстаграм</a>
-        <a href="tel:+998994430030" title="Telefon"><i class="fa-solid fa-phone"></i> Телефон</a>
-      </div>
-      <p class="copyright">
-        © 2025 <a href="https://hilarious-rabanadas-d9dfac.netlify.app/">Edev.uz</a> IT xizmatlar
-      </p>
+        <div class="social-icons">
+            <a href="https://t.me/Chustchoyhona" title="Telegram">
+                <i class="fa-brands fa-telegram"></i> Телеграм
+            </a>
+            <a href="https://www.instagram.com/chust.choyxonasi?igsh=eDN4OHg3cHd0b2Nn" title="Instagram">
+                <i class="fa-brands fa-instagram"></i> Инстаграм
+            </a>
+            <a href="tel:+998994430030" title="Telefon">
+                <i class="fa-solid fa-phone"></i> Телефон
+            </a>
+        </div>
+        <p class="copyright">
+            © 2025 <a href="https://hilarious-rabanadas-d9dfac.netlify.app/">Edev.uz</a> IT xizmatlar
+        </p>
     </footer>
 
     <div class="modal fade" id="opinionModal" tabindex="-1" aria-labelledby="opinionModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="opinionModalLabel">Чуст чойхонаси</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="opinionForm">
-              <div class="mb-3">
-                <label for="opinionText" class="form-label">Sizning fikrigiz juda muhum:</label>
-                <textarea class="form-control" placeholder="o'z fikrigizni qoldiring...." id="opinionText" name="opinion" rows="3" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-success">Yuborish</button>
-            </form>
-          </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="opinionModalLabel">Чуст чойхонаси</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="opinionForm">
+                        <div class="mb-3">
+                            <label for="opinionText" class="form-label">Sizning fikrigiz juda muhim:</label>
+                            <textarea class="form-control" placeholder="o'z fikringizni qoldiring..." id="opinionText" name="opinion" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Yuborish</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
-    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      document.getElementById('opinionForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const submitButton = this.querySelector('button[type="submit"]');
-        submitButton.disabled = true;
-        const formData = new FormData(this);
-        fetch('https://script.google.com/macros/s/AKfycbxlqNv0spKfLk-YCwlgbvWrp9s6H1XkHYdeM5LFTgJpmOmoFvVMHMvJv5ASgWdYOeh_/exec', {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.status === 'success') {
-            alert('Sizning habaringiz yuborildi!');
-            const modal = bootstrap.Modal.getInstance(document.getElementById('opinionModal'));
-            modal.hide();
-            document.getElementById('opinionText').value = '';
-          } else {
-            alert('There was an error submitting your opinion.');
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('There was an error submitting your opinion.');
-        })
-        .finally(() => {
-          submitButton.disabled = false;
+        document.getElementById('opinionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Yuborilmoqda...';
+            
+            const formData = new FormData(this);
+            
+            fetch('https://script.google.com/macros/s/AKfycbxlqNv0spKfLk-YCwlgbvWrp9s6H1XkHYdeM5LFTgJpmOmoFvVMHMvJv5ASgWdYOeh_/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Sizning habaringiz yuborildi! Rahmat!');
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('opinionModal'));
+                    modal.hide();
+                    document.getElementById('opinionText').value = '';
+                } else {
+                    alert('Xatolik yuz berdi. Iltimos, keyinroq qayta urunib ko\'ring.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Xatolik yuz berdi. Iltimos, keyinroq qayta urunib ko\'ring.');
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalText;
+            });
         });
-      });
+        
+        // Add animation to categories on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const categories = document.querySelectorAll('.category');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            categories.forEach(category => {
+                category.style.opacity = 0;
+                category.style.transform = 'translateY(20px)';
+                category.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(category);
+            });
+        });
     </script>
-  </body>
+</body>
 </html>
